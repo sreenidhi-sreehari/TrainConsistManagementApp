@@ -1,22 +1,26 @@
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrainConsistManagementApp {
+
     public static void main(String[] args) {
-        System.out.println("=================================");
-        System.out.println("UC5 - Preserve Insertion Order of Bogies");
-        System.out.println("=================================\n");
 
-        Set<String> formation = new LinkedHashSet<>();
+        System.out.println("======================================");
+        System.out.println(" UC6 - Map Bogie to Capacity (HashMap) ");
+        System.out.println("======================================\n");
 
-        formation.add("Engine");
-        formation.add("Sleeper");
-        formation.add("Cargo");
-        formation.add("Guard");
-        formation.add("Sleeper");
+        Map<String, Integer> capacityMap = new HashMap<>();
 
-        System.out.println("Final Train Formation:");
-        for (String bogie : formation) {
-            System.out.println(bogie);
+        capacityMap.put("Sleeper", 72);
+        capacityMap.put("AC Chair", 78);
+        capacityMap.put("First Class", 24);
+        capacityMap.put("Rectangular Goods", 100);
+        capacityMap.put("Cylindrical Goods", 80);
+
+        System.out.println("Bogie Capacity Details:\n");
+
+        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() + " | Capacity: " + entry.getValue());
         }
     }
 }
