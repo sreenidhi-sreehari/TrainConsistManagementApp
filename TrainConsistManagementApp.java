@@ -3,23 +3,19 @@ import java.util.*;
 public class TrainConsistManagementApp {
     public static void main(String[] args) {
         System.out.println("=================================");
-        System.out.println(" UC4 - Maintain Ordered Bogie Consist ");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies");
         System.out.println("=================================\n");
 
-        LinkedList<String> trainConsist = new LinkedList<>();
+        Set<String> formation = new LinkedHashSet<>();
 
-        trainConsist.add("Engine");
-        trainConsist.add("Sleeper");
-        trainConsist.add("AC");
-        trainConsist.add("Cargo");
-        trainConsist.add("Guard");
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+        formation.add("Sleeper");
 
-        trainConsist.add(2, "Pantry");
-
-        trainConsist.removeFirst();
-        trainConsist.removeLast();
-
-        for (String bogie : trainConsist) {
+        System.out.println("Final Train Formation:");
+        for (String bogie : formation) {
             System.out.println(bogie);
         }
     }
