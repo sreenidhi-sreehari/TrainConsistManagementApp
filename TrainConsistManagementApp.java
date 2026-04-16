@@ -1,40 +1,30 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class TrainConsistManagementApp {
-
-    static class Bogie {
-        String name;
-        int capacity;
-
-        Bogie(String name, int capacity) {
-            this.name = name;
-            this.capacity = capacity;
-        }
-    }
-
     public static void main(String[] args) {
 
-        System.out.println("======================================");
-        System.out.println(" UC10 - Count Total Seats in Train ");
-        System.out.println("======================================\n");
+        System.out.println("==========================================");
+        System.out.println(" UC16 - Manual Sorting using Bubble Sort ");
+        System.out.println("==========================================\n");
 
-        List<Bogie> bogies = new ArrayList<>();
+        int[] capacities = {72, 56, 24, 70, 60};
 
-        bogies.add(new Bogie("Sleeper", 72));
-        bogies.add(new Bogie("AC Chair", 56));
-        bogies.add(new Bogie("First Class", 24));
-        bogies.add(new Bogie("Sleeper", 70));
-
-        System.out.println("Bogies in Train:");
-        for (Bogie b : bogies) {
-            System.out.println(b.name + " -> " + b.capacity);
+        System.out.println("Original Capacities:");
+        for (int c : capacities) {
+            System.out.print(c + " ");
         }
 
-        int totalSeats = bogies.stream()
-                .map(b -> b.capacity)
-                .reduce(0, Integer::sum);
+        for (int i = 0; i < capacities.length - 1; i++) {
+            for (int j = 0; j < capacities.length - 1 - i; j++) {
+                if (capacities[j] > capacities[j + 1]) {
+                    int temp = capacities[j];
+                    capacities[j] = capacities[j + 1];
+                    capacities[j + 1] = temp;
+                }
+            }
+        }
 
-        System.out.println("\nTotal Seating Capacity: " + totalSeats);
+        System.out.println("\n\nSorted Capacities (Ascending):");
+        for (int c : capacities) {
+            System.out.print(c + " ");
+        }
     }
 }
