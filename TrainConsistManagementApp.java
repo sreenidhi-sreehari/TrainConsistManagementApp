@@ -2,34 +2,28 @@ public class TrainConsistManagementApp {
     public static void main(String[] args) {
 
         System.out.println("==========================================");
-        System.out.println(" UC19 - Binary Search for Bogie ID ");
+        System.out.println(" UC20 - Prevent Search on Empty Train ");
         System.out.println("==========================================\n");
 
-        String[] bogieIds = {"BG101", "BG205", "BG309", "BG412", "BG550"};
+        String[] bogieIds = {};
 
         String searchId = "BG309";
+
+        if (bogieIds.length == 0) {
+            throw new IllegalStateException("No bogies available in the train. Cannot perform search.");
+        }
 
         System.out.println("Available Bogie IDs:");
         for (String id : bogieIds) {
             System.out.print(id + " ");
         }
 
-        int low = 0;
-        int high = bogieIds.length - 1;
         boolean found = false;
 
-        while (low <= high) {
-            int mid = (low + high) / 2;
-
-            int result = searchId.compareTo(bogieIds[mid]);
-
-            if (result == 0) {
+        for (String id : bogieIds) {
+            if (id.equals(searchId)) {
                 found = true;
                 break;
-            } else if (result > 0) {
-                low = mid + 1;
-            } else {
-                high = mid - 1;
             }
         }
 
